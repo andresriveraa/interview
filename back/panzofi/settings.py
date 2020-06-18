@@ -72,6 +72,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'panzofi.wsgi.application'
 
 AUTH_USER_MODEL = 'user.User'
+
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 

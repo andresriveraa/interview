@@ -1,6 +1,7 @@
 from django.db import models
 
-class User_model(models.Model):
+
+class UserModel(models.Model):
     """
     base para crear los usuarios
     """
@@ -17,6 +18,8 @@ class User_model(models.Model):
     )
 
     class Meta:
+
         abstract = True
+
         get_latest_by = 'created'
         ordering = ['-created', '-modified']
