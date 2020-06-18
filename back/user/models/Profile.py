@@ -1,10 +1,11 @@
 from django.db import models
 # utils
 from user.utils import UserModel
+from user.models import User
 
 
 class Profile (UserModel):
-    user = models.OneToOneField('user.User', on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     logo = models.ImageField(
         'profile picture',
         upload_to='users/picture',
@@ -16,6 +17,7 @@ class Profile (UserModel):
 
     clicks = models.PositiveIntegerField(default=0)
     time_in_app = models.PositiveIntegerField(default=0)
+
 
     def __str__(self):
         return str(self.user)

@@ -25,8 +25,7 @@ SECRET_KEY = '34c@nnbe4&vs@4*sd3d)2y@yq5rrs5#)x42#89e-tj7pxgo@mg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -39,11 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # third
     'rest_framework',
+    'corsheaders',
     # local
     'user',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -51,7 +53,20 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # cors
 ]
+
+MIDDLEWARE_CLASSES = (
+)
+
+CORS_ORIGIN_ALLOW_ALL = True # If this is used then `CORS_ORIGIN_WHITELIST` will not have any effect
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000'
+] # If this is used, then not need to use `CORS_ORIGIN_ALLOW_ALL = True`
+# CORS_ALLOW_CREDENTIALS = True
+# CORS_ORIGIN_REGEX_WHITELIST = [
+#     'http://localhost:3000'
+# ]
 
 ROOT_URLCONF = 'panzofi.urls'
 
