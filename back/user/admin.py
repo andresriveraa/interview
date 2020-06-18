@@ -9,5 +9,10 @@ class CustomUserAdmin(UserAdmin):
     list_filter = ('is_client', 'is_staff', 'created', 'modified')
 
 
-# admin.site.register(User)
-# admin.site.register(Profile)
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    last_display = ('user', 'clicks', 'time_in_app')
+    search_filter = ('user__username', 'user__email', 'user__first_name', 'user__last_name')
+
+
+admin.site.register(User, CustomUserAdmin)

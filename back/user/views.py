@@ -1,8 +1,16 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-
-
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+# models
+from user.models import User
 # Create your views here.
+
+
+@api_view(['GET'])
 def hello(request):
-    word = 'world'
-    return HttpResponse('hello {word}'.format(word=word))
+    userss = User.objects.all()
+    data = []
+    for usr in userss:
+        data.append({
+            'name': usr.first_name
+        })
+    return Response(data)
