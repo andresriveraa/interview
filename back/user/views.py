@@ -7,7 +7,7 @@ from user.models import User, Profile
 
 @api_view(['GET'])
 def hello(request):
-    # userss = User.objects.all()
+    userss = User.objects.all()
     profiles = Profile.objects.all()
     data = []
     for usr in profiles:
@@ -15,3 +15,8 @@ def hello(request):
             'clicks': usr.biography
         })
     return Response(data)
+
+
+@api_view(['POST'])
+@
+def login(request):
