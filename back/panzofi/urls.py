@@ -20,5 +20,5 @@ from user import views as views_user
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views_user.hello )
+    path('', views_user.UserLoginAPIView)
 ]
