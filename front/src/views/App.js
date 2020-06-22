@@ -1,25 +1,26 @@
 import React from 'react';
-import '../static/css/App.css';
+// import '../styles/index.scss';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 // components
 import Login from './login'
+import Menu from '../Components/menu'
 
 function App() {
   return (
     <div className="App">
-      <nav className="nav">
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/login"
-            component={Login}>
-            </Route>
-          </Switch>
-        </BrowserRouter>
-      </nav>
-      <header className="App-header">
-        <p>hello world</p>
-      </header>
+      <main>
+        <nav className="nav">
+          <BrowserRouter>
+            <Menu />
+            <Switch>
+              <Route exact path="/login"
+              component={Login}>
+              </Route>
+            </Switch>
+          </BrowserRouter>
+        </nav>
+      </main>
     </div>
   );
 }

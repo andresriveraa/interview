@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './static/css/index.css';
+import './Styles/index.scss';
 import App from './views/App';
 import * as serviceWorker from './serviceWorker';
 // redux

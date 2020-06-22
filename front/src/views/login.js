@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import '../Styles/login.scss'
+
 // actions
 import * as loginActions from '../actions/loginActions'
 
@@ -15,7 +17,12 @@ class Login extends React.Component{
   render(){
     return(
       <div className="log">
-        {this.ponerpost()}   
+        <form className="loginForm">
+          <input type="email" name="" id="" placeholder="Email" />
+          <input type="password" name="" id="" placeholder="Password" />
+          <button className="btn">login</button>
+        </form>
+        {/* {this.ponerpost()}    */}
       </div>
     )
   }
