@@ -5,7 +5,7 @@ from users.models import User
 
 
 class CustomUserAdmin(UserAdmin):
-    last_display = ('email', 'username', 'first_name', 'last_name', 'is_staff')
+    last_display = ('email', 'username', 'first_name', 'last_name', 'is_staff', 'is_verified')
     list_filter = ('created', 'modified')
 
 

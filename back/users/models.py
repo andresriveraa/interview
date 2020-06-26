@@ -28,6 +28,12 @@ class User(AbstractUser):
         help_text='date time on modified'
     )
 
+    is_verified = models.BooleanField(
+        'verified',
+        default=False,
+        help_text='set to true when the user heve verified its email adress '
+    )
+
     def __str__(self):
         return self.username
 
@@ -35,6 +41,3 @@ class User(AbstractUser):
         return self.username
 
 
-from django.db import models
-
-# Create your models here.
