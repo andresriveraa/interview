@@ -1,7 +1,8 @@
 import json
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, viewsets
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.parsers import JSONParser
 # serializers
 from users.serializers import (
@@ -10,6 +11,15 @@ from users.serializers import (
     UserSignupSerializers
 )
 from users.models import User
+
+
+# with viewset
+class CircleViewSet(viewsets.ModelViewSet):
+
+    queryset = User.objects.all()
+    permission_classes = (IsAuthenticated,)
+    serializer_class = UserModelSerializer
+
 
 
 class UserLoginAPIView (APIView):
